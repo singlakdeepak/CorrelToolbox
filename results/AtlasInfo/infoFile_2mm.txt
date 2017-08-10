@@ -1,3 +1,4 @@
+ls
 Minimum ROI voxels: 86 , ROI Number: 213
 Maximum ROI voxels: 1534 , ROI Number: 143
 Average Number of voxels in each ROI: 5.718699e+02

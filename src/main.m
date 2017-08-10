@@ -14,7 +14,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 path = '/Users/deepaksingla/Desktop/Correlate/cocaine/INPUTFILES/';
-AtlasFile = '/Users/deepaksingla/Desktop/Correlate/BN_Atlas_246_2mm.nii.gz';
+AtlasFile = '/Users/deepaksingla/Desktop/CorrelToolbox/data/BN_Atlas_246_3mm.nii.gz';
 subjects = dir(fullfile(path,'*.nii.gz'));
 AtlasFileinp = load_untouch_nii(AtlasFile);
 ROIs = AtlasFileinp.img;
@@ -39,10 +39,10 @@ allInds = find(ROIs>0);
 averagevoxels = mean(Nvoxels);
 stddevVoxels = std(Nvoxels);
 
-l = 1:NumROIs;
+l = double(1:NumROIs);
 A =[l ;Nvoxels'];
 
-FID=fopen('infoFile_2mm.txt','w');
+FID=fopen('infoFile_3mm.txt','w');
 fprintf(FID,  'Minimum ROI voxels: %d , ROI Number: %d\n',[MinvoxelsinROI, placemin]);
 fprintf(FID,  'Maximum ROI voxels: %d , ROI Number: %d\n',[MaxvoxelsinROI, placemax]);
 fprintf(FID, 'Average Number of voxels in each ROI: %d\n', averagevoxels);
