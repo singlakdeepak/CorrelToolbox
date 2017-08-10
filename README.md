@@ -1,2 +1,2 @@
-# CorrelToolbox
-Toolbox for calculating the pval, qval and other stats from ISC.
+bash applyomat.sh
+bash applyinterpol.sh "/Users/deepaksingla/Desktop/Correlate/cocaine/INPUTFILES"
