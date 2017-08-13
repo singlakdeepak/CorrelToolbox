@@ -13,7 +13,7 @@
 %                                                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-path = '/Users/deepaksingla/Desktop/Correlate/cocaine/INPUTFILES/';
+path = '/Users/deepaksingla/Desktop/CorrelToolbox/data/cocaine/INPUTFILES/';
 AtlasFile = '/Users/deepaksingla/Desktop/CorrelToolbox/data/BN_Atlas_246_3mm.nii.gz';
 subjects = dir(fullfile(path,'*.nii.gz'));
 AtlasFileinp = load_untouch_nii(AtlasFile);
@@ -23,7 +23,7 @@ Nvoxels = zeros(NumROIs,1);
 
 for j = 1:NumROIs
      temp = find(ROIs==j);
-    indicesROI{j} = temp;
+     indicesROI{j} = temp;
      Nvoxels(j) = length(temp);
      
 %     for i = (j+1):NumROIs
@@ -42,7 +42,7 @@ stddevVoxels = std(Nvoxels);
 l = double(1:NumROIs);
 A =[l ;Nvoxels'];
 
-FID=fopen('infoFile_3mm.txt','w');
+FID=fopen('infoFile_2mm.txt','w');
 fprintf(FID,  'Minimum ROI voxels: %d , ROI Number: %d\n',[MinvoxelsinROI, placemin]);
 fprintf(FID,  'Maximum ROI voxels: %d , ROI Number: %d\n',[MaxvoxelsinROI, placemax]);
 fprintf(FID, 'Average Number of voxels in each ROI: %d\n', averagevoxels);
@@ -52,23 +52,5 @@ fprintf(FID, '%d %d\r\n', A);
 
 
 fclose(FID);
-% for k = 1: length(subjects)
-%     basesubBrain = subjects(k).name;
-%     fullsubBrainName = fullfile(path, basesubBrain);
-%     input = load_untouch_nii(fullsubBrainName);
-%     inp_hdr = input.hdr;
-%     slice = double(input.img);
-%     f = size(slice)
-% 
-%     N_vols =f(4);
-%     N = 1:N_vols;
-%     N_slices = f(3);
-% 
-%     for i = 1:(NumROIs-1)
-%         for j = (i+1):NumROIs
-%         
-%         end 
-%     end
-%     
-% end
+
 
