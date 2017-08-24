@@ -36,4 +36,20 @@ The timings that I calculated in the previous iteration also included loading an
 * In my case, the total number of operations had been calculated this way:
   Let the total number of voxels be **N** and timeseries be **T** while the non-zero voxels are **M**.
   * **Calculating the mean**: (T-1 +1) operations for each voxel. Therefore, *total operations for mean* = T*N
-  * **Calculating the standard Deviation**: Formula is *E(X^2) - [E(X)]^2
+  * **Calculating the standard Deviation**: Formula is *E(X^2) - [E(X)]^2*. Hence, for calculating E(X^2), it takes *T * N +T * N = 2T * N* operations. Also, subtracting and squaring E(X), takes another 2N operations. Therefore, *total operations for standard deviation* = 2T * N + 2N
+  * **Normalizing the data**: Now, we need to normalize each and every data point. Hence, *total operations for normalization* = 2T * N
+  * **Whole brain to Whole brain matrix multiplication**: Now, since M are the number of voxels with non-zero values. Hence, we shall do matrix multiplication of *M X T with T X M matrix*. Therefore, *total operations for matrix multiplication* = (2T - 1)*N^2 
+  * Roughly, we have total number of operations: 5T * N + 2N + (2T - 1) * N^2
+  
+In my case, the total time it took for whole brain to whole brain correlation was **182.256s** and the number of operations for a brain with N = 271633 , T = 176 and M = 110351 came out to be **4.262 X 10^12**. 
+
+Therefore, 
+**GFLOPS for this iteration = 23.38 GFLOPs**
+
+while the processor has clock frequency = 3.2 GHz and processor name is Intel Core i7. 
+
+**Rough way for calculating GFLOPS of processor = Number of cores X Flops/Cycle X Frequency.**
+
+For Intel, you can read Flops/Cycle [here](https://en.wikipedia.org/wiki/FLOPS) = 4 DP FLOPs/Cycle.
+
+**Rough GFLOPs for my processor = 8 X 4 X 3.2 = 102.4 GFLOPs** or you can download [Linpack](https://serverfault.com/a/822011) from here, a good tool for calculating the GigaFLOPs.
