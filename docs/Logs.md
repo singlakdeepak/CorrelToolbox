@@ -38,13 +38,17 @@ The timings that I calculated in the previous iteration also included loading an
   * **Calculating the mean**: (T-1 +1) operations for each voxel. Therefore, *total operations for mean* = T*N
   * **Calculating the standard Deviation**: Formula is *E(X^2) - [E(X)]^2*. Hence, for calculating E(X^2), it takes *T * N +T * N = 2T * N* operations. Also, subtracting and squaring E(X), takes another 2N operations. Therefore, *total operations for standard deviation* = 2T * N + 2N
   * **Normalizing the data**: Now, we need to normalize each and every data point. Hence, *total operations for normalization* = 2T * N
-  * **Whole brain to Whole brain matrix multiplication**: Now, since M are the number of voxels with non-zero values. Hence, we shall do matrix multiplication of *M X T with T X M matrix*. Therefore, *total operations for matrix multiplication* = (2T - 1)*N^2 
-  * Roughly, we have total number of operations: 5T * N + 2N + (2T - 1) * N^2
+  * **Whole brain to Whole brain matrix multiplication**: Now, since M are the number of voxels with non-zero values. Hence, we shall do matrix multiplication of *M X T with T X M matrix*. Therefore, *total operations for matrix multiplication* = (2T - 1)*M^2 
+  * Roughly, we have total number of operations: 5T * N + 2N + (2T - 1) * M^2
   
-In my case, the total time it took for whole brain to whole brain correlation was **182.256s** and the number of operations for a brain with N = 271633 , T = 176 and M = 110351 came out to be **4.262 X 10^12**. 
+In my case, the total time it took for whole brain to whole brain correlation was **182.256s** and the number of operations for a brain with N = 271633 , T = 176 and M = 110351 came out to be **4.274 X 10^12**. 
 
 Therefore, 
-**GFLOPS for this iteration = 23.38 GFLOPs**
+* **Calculating the mean**: 47807480 ops
+* **Calculating the Standard Deviation**: 96158226 ops
+* **Normalizing the data**: 95614690 ops
+* **Whole brain to Whole brain matrix multiplication**: 4.274 X 10^12 ops
+**GFLOPS for this iteration = 23.45 GFLOPs**
 
 while the processor has clock frequency = 3.2 GHz and processor name is Intel (Haswell)Core i7. 
 
