@@ -46,7 +46,7 @@ In my case, the total time it took for whole brain to whole brain correlation wa
 Therefore, 
 **GFLOPS for this iteration = 23.38 GFLOPs**
 
-while the processor has clock frequency = 3.2 GHz and processor name is Intel Core i7. 
+while the processor has clock frequency = 3.2 GHz and processor name is Intel (Haswell)Core i7. 
 
 **Rough way for calculating GFLOPS of processor = Number of cores X Flops/Cycle X Frequency.**
 
