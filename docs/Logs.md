@@ -50,6 +50,6 @@ while the processor has clock frequency = 3.2 GHz and processor name is Intel Co
 
 **Rough way for calculating GFLOPS of processor = Number of cores X Flops/Cycle X Frequency.**
 
-For Intel, you can read Flops/Cycle [here](https://en.wikipedia.org/wiki/FLOPS) = 4 DP FLOPs/Cycle.
+For Intel Haswell which I am using, you can read Flops/Cycle [here](https://en.wikipedia.org/wiki/FLOPS) = 16 DP FLOPs/Cycle.
 
-**Rough GFLOPs for my processor = 8 X 4 X 3.2 = 102.4 GFLOPs** or you can download [Linpack](https://serverfault.com/a/822011) from here, a good tool for calculating the GigaFLOPs. From LinPack, the range for GFLOPs for the processor was 145-160 GFLOPs.
+**Rough GFLOPs for my processor = 8 X 16 X 3.2 = 409.6 GFLOPs** or you can download [Linpack](https://serverfault.com/a/822011) from here, a good tool for calculating the GigaFLOPs. From LinPack, the range for GFLOPs for the processor was **145-160 GFLOPs**.
